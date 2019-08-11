@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  file_server:
+    build: ./
+    restart: "no"
+    expose:
+      - 80
+    environment:
+      VIRTUAL_HOST: the.domain.com
+    container_name: file_server
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
