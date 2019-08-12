@@ -5,7 +5,7 @@ module Main where
 import Network.Wai.Application.Static
 import Network.Wai.Handler.Warp (run)
 
-port = 3000
+port = 80
 
 -- Front end build process can be anything,
 -- as long as it ends up in static
