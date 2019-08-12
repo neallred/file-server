@@ -6,11 +6,11 @@ RUN apt-get update && apt-get install -y \
   git \
   && \
   curl https://get.haskellstack.org/ | sh && \
-  apt-get remove curl \
+  apt-get remove -y curl && \
   rm -rf /var/lib/apt/lists/*
 RUN git clone https://github.com/neallred/file-server.git
 WORKDIR file-server
-RUN git pull && apt-get remove git
+RUN git pull && apt-get remove -y git
 # build backend before static assets. They are less likely to change
 RUN stack build --copy-bins --local-bin-path ./ && rm -rf ~/.stack && rm -rf .stack-work
 
